@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>React 学习路径 — 有基础到高级全栈</title>
 <style>
-:root { color-scheme:light; --bg:#f8f9fb; --card:#fff; --border:#e5e7eb; --accent:#6366f1; --text:#111827; --muted:#6b7280; }
+:root{color-scheme:light;--bg:#f8f9fb;--card:#fff;--border:#e5e7eb;--accent:#6366f1;--text:#111827;--muted:#6b7280;}
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
 .hero{background:linear-gradient(135deg,#6366f1 0%,#8b5cf6 60%,#06b6d4 100%);color:white;padding:44px 24px 52px;text-align:center;}
@@ -28,7 +28,7 @@ nav.nav{background:white;border-bottom:1px solid var(--border);padding:0 20px;di
 .phase-hd{border-radius:14px;padding:24px 28px;margin-bottom:20px;color:white;position:relative;overflow:hidden;}
 .phase-hd h2{font-size:1.5rem;font-weight:700;margin-bottom:4px;}
 .phase-hd p{opacity:.88;font-size:.92rem;max-width:580px;}
-.phase-hd .bg-num{position:absolute;right:28px;top:50%;transform:translateY(-50%);font-size:4rem;font-weight:900;opacity:.12;}
+.bg-num{position:absolute;right:28px;top:50%;transform:translateY(-50%);font-size:4rem;font-weight:900;opacity:.12;}
 .ph1{background:linear-gradient(135deg,#6366f1,#818cf8);}
 .ph2{background:linear-gradient(135deg,#8b5cf6,#a78bfa);}
 .ph3{background:linear-gradient(135deg,#06b6d4,#22d3ee);}
@@ -62,7 +62,6 @@ nav.nav{background:white;border-bottom:1px solid var(--border);padding:0 20px;di
 .plv{display:inline-block;padding:2px 9px;border-radius:9px;font-size:.72rem;font-weight:700;margin-bottom:7px;}
 .lv1{background:#dbeafe;color:#1e40af;}.lv2{background:#ede9fe;color:#5b21b6;}
 .lv3{background:#fef3c7;color:#92400e;}.lv4{background:#d1fae5;color:#064e3b;}
-.skill-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px;margin-bottom:40px;}
 .skill-item{background:white;border:1px solid var(--border);border-radius:9px;padding:12px 14px;display:flex;align-items:center;gap:10px;cursor:pointer;transition:border-color .2s;}
 .skill-item:hover{border-color:var(--accent);}
 .skill-check{width:18px;height:18px;border:2px solid var(--border);border-radius:4px;flex-shrink:0;transition:all .2s;}
@@ -85,16 +84,16 @@ nav.nav{background:white;border-bottom:1px solid var(--border);padding:0 20px;di
 <body>
 <div class="hero">
   <h1>&#x269B;&#xFE0F; React 完整学习路径</h1>
-  <p>已有 HTML/CSS/JS + Node.js + Next.js 基础 &middot; 直达高级全栈</p>
+  <p>已有 HTML/CSS/JS + Node.js 基础 &middot; React &#x2192; 高级全栈（含 Next.js）</p>
   <div class="hero-badges">
     <span class="badge">&#x23F1; 每日 3-4 小时</span>
-    <span class="badge">&#x1F4C5; 共 60 天</span>
+    <span class="badge">&#x1F4C5; 共 65 天</span>
     <span class="badge">&#x1F3AF; 4 个阶段</span>
     <span class="badge">&#x1F680; 7 个实战项目</span>
   </div>
 </div>
 <div class="stats-bar">
-  <div class="stat"><div class="stat-num">60</div><div class="stat-label">总天数</div></div>
+  <div class="stat"><div class="stat-num">65</div><div class="stat-label">总天数</div></div>
   <div class="stat"><div class="stat-num">4</div><div class="stat-label">学习阶段</div></div>
   <div class="stat"><div class="stat-num">7</div><div class="stat-label">完整项目</div></div>
   <div class="stat"><div class="stat-num" id="doneCount">0</div><div class="stat-label">已完成</div></div>
@@ -104,180 +103,176 @@ nav.nav{background:white;border-bottom:1px solid var(--border);padding:0 20px;di
   </div>
 </div>
 <nav class="nav">
-  <button class="nav-btn active" onclick="showTab('overview')">&#x1F4CB; 总览</button>
-  <button class="nav-btn" onclick="showTab('phase1')">① React核心 (D1-15)</button>
-  <button class="nav-btn" onclick="showTab('phase2')">② 生态工具 (D16-30)</button>
-  <button class="nav-btn" onclick="showTab('phase3')">③ 进阶优化 (D31-45)</button>
-  <button class="nav-btn" onclick="showTab('phase4')">④ 全栈实战 (D46-60)</button>
-  <button class="nav-btn" onclick="showTab('projects')">&#x1F6E0; 项目汇总</button>
-  <button class="nav-btn" onclick="showTab('skills')">&#x2705; 技能清单</button>
+  <button class="nav-btn active" onclick="showTab('overview',this)">&#x1F4CB; 总览</button>
+  <button class="nav-btn" onclick="showTab('phase1',this)">① React核心 (D1-15)</button>
+  <button class="nav-btn" onclick="showTab('phase2',this)">② 生态工具 (D16-30)</button>
+  <button class="nav-btn" onclick="showTab('phase3',this)">③ 进阶优化 (D31-45)</button>
+  <button class="nav-btn" onclick="showTab('phase4',this)">④ Next.js全栈 (D46-65)</button>
+  <button class="nav-btn" onclick="showTab('projects',this)">&#x1F6E0; 项目汇总</button>
+  <button class="nav-btn" onclick="showTab('skills',this)">&#x2705; 技能清单</button>
 </nav>
 <div class="container">
 
-<!-- OVERVIEW TAB -->
 <div class="tab-section active" id="tab-overview">
   <div class="tip-box">
     <strong>&#x1F3AF; 为你定制的路径说明</strong>
-    你已有 HTML/CSS/JS + Node.js + Next.js 基础，直接跳过前端基础，从 React 核心切入。Next.js 阶段四系统深化 App Router + 全栈能力。60 天可达初中级可就业水平，并具备持续进阶的基础。
+    你已有 HTML/CSS/JS + Node.js 基础，但不了解 Next.js。路径分四阶段：前三阶段打牢 React 核心与生态，第四阶段从零系统学习 Next.js，最终具备独立交付全栈项目的能力。共 65 天。
   </div>
   <div class="ov-grid">
     <div class="ov-card"><div class="ov-icon">&#x269B;&#xFE0F;</div><div class="ov-title">阶段一 · React核心</div><div class="ov-sub">Day 1–15<br>JSX · Hooks · 组件设计</div></div>
     <div class="ov-card"><div class="ov-icon">&#x1F527;</div><div class="ov-title">阶段二 · 生态工具</div><div class="ov-sub">Day 16–30<br>Router · 状态管理 · 数据请求</div></div>
     <div class="ov-card"><div class="ov-icon">&#x1F680;</div><div class="ov-title">阶段三 · 进阶优化</div><div class="ov-sub">Day 31–45<br>性能 · 测试 · TypeScript</div></div>
-    <div class="ov-card"><div class="ov-icon">&#x1F310;</div><div class="ov-title">阶段四 · 全栈实战</div><div class="ov-sub">Day 46–60<br>Next.js深化 · 数据库 · 部署</div></div>
+    <div class="ov-card"><div class="ov-icon">&#x1F310;</div><div class="ov-title">阶段四 · Next.js全栈</div><div class="ov-sub">Day 46–65<br>从零学 Next.js · 数据库 · 部署</div></div>
   </div>
   <div class="sec-title">&#x1F3C6; 合格后应能独立完成的项目</div>
   <div class="proj-grid">
-    <div class="proj-card"><span class="plv lv1">阶段一</span><h4>&#x1F4DD; 任务管理应用</h4><p>组件拆分、状态管理、本地持久化</p><div class="proj-tags"><span class="ptag">useState</span><span class="ptag">useEffect</span><span class="ptag">自定义Hook</span></div></div>
-    <div class="proj-card"><span class="plv lv2">阶段二</span><h4>&#x1F324; 天气查询+收藏</h4><p>API集成、多页路由、Context全局状态</p><div class="proj-tags"><span class="ptag">React Router</span><span class="ptag">Context</span><span class="ptag">React Query</span></div></div>
-    <div class="proj-card"><span class="plv lv2">阶段二</span><h4>&#x1F6D2; 电商商品+购物车</h4><p>复杂状态、购物车逻辑、全局状态</p><div class="proj-tags"><span class="ptag">Zustand</span><span class="ptag">useReducer</span><span class="ptag">动画</span></div></div>
-    <div class="proj-card"><span class="plv lv3">阶段三</span><h4>&#x1F4CA; 数据可视化仪表盘</h4><p>大列表性能、图表组件、测试覆盖</p><div class="proj-tags"><span class="ptag">memo/useMemo</span><span class="ptag">Recharts</span><span class="ptag">Vitest</span></div></div>
-    <div class="proj-card"><span class="plv lv4">阶段四</span><h4>&#x1F512; 全栈认证系统</h4><p>JWT + Session、API Routes、中间件鉴权</p><div class="proj-tags"><span class="ptag">Next.js</span><span class="ptag">Prisma</span><span class="ptag">NextAuth</span></div></div>
-    <div class="proj-card"><span class="plv lv4">阶段四</span><h4>&#x1F4F0; 全栈博客平台</h4><p>SSG/SSR/ISR、MDX内容管理、SEO</p><div class="proj-tags"><span class="ptag">App Router</span><span class="ptag">Server Components</span><span class="ptag">MDX</span></div></div>
-    <div class="proj-card"><span class="plv lv4">阶段四</span><h4>&#x1F3EA; 综合毕业项目</h4><p>完整全栈应用，从需求分析到线上部署</p><div class="proj-tags"><span class="ptag">Next.js全栈</span><span class="ptag">PostgreSQL</span><span class="ptag">Vercel</span></div></div>
+    <div class="proj-card"><span class="plv lv1">阶段一</span><h4>&#x1F4DD; 任务管理应用</h4><p>完整 CRUD，本地存储，组件拆分，自定义 Hook</p><div class="proj-tags"><span class="ptag">useState</span><span class="ptag">useEffect</span><span class="ptag">自定义Hook</span></div></div>
+    <div class="proj-card"><span class="plv lv2">阶段二</span><h4>&#x1F324; 天气查询+收藏</h4><p>真实 API，多页路由，全局状态，骨架屏</p><div class="proj-tags"><span class="ptag">React Router</span><span class="ptag">React Query</span><span class="ptag">Zustand</span></div></div>
+    <div class="proj-card"><span class="plv lv2">阶段二</span><h4>&#x1F6D2; 电商商品+购物车</h4><p>搜索排序，购物车状态，结算流程，动画</p><div class="proj-tags"><span class="ptag">Zustand</span><span class="ptag">useReducer</span><span class="ptag">Framer Motion</span></div></div>
+    <div class="proj-card"><span class="plv lv3">阶段三</span><h4>&#x1F4CA; 数据可视化仪表盘</h4><p>图表组件，虚拟列表，TypeScript，单元测试</p><div class="proj-tags"><span class="ptag">TypeScript</span><span class="ptag">Recharts</span><span class="ptag">Vitest</span></div></div>
+    <div class="proj-card"><span class="plv lv4">阶段四</span><h4>&#x1F512; 全栈认证系统</h4><p>注册登录，JWT，中间件保护，权限管理</p><div class="proj-tags"><span class="ptag">Next.js</span><span class="ptag">Prisma</span><span class="ptag">NextAuth</span></div></div>
+    <div class="proj-card"><span class="plv lv4">阶段四</span><h4>&#x1F4F0; 全栈博客平台</h4><p>MDX内容，SSG/SSR/ISR，评论，SEO</p><div class="proj-tags"><span class="ptag">App Router</span><span class="ptag">Server Components</span><span class="ptag">MDX</span></div></div>
+    <div class="proj-card"><span class="plv lv4">阶段四</span><h4>&#x1F3EA; 综合毕业项目</h4><p>完整全栈，需求到部署，覆盖所有核心技能</p><div class="proj-tags"><span class="ptag">Next.js全栈</span><span class="ptag">PostgreSQL</span><span class="ptag">Vercel</span></div></div>
   </div>
 </div>
 
-<!-- PHASE 1 TAB -->
 <div class="tab-section" id="tab-phase1">
   <div class="phase-hd ph1"><h2>阶段一 · React 核心</h2><p>掌握 JSX、组件思维、所有常用 Hooks，能独立构建 SPA 应用</p><span class="bg-num">01</span></div>
   <div class="days-grid" id="grid-phase1"></div>
 </div>
-<!-- PHASE 2 TAB -->
 <div class="tab-section" id="tab-phase2">
-  <div class="phase-hd ph2"><h2>阶段二 · 生态工具链</h2><p>路由、全局状态、数据请求、UI组件库，真实项目必备技能</p><span class="bg-num">02</span></div>
+  <div class="phase-hd ph2"><h2>阶段二 · 生态工具链</h2><p>路由、全局状态、数据请求、UI组件库，真实项目必备</p><span class="bg-num">02</span></div>
   <div class="days-grid" id="grid-phase2"></div>
 </div>
-<!-- PHASE 3 TAB -->
 <div class="tab-section" id="tab-phase3">
   <div class="phase-hd ph3"><h2>阶段三 · 进阶与优化</h2><p>性能调优、测试、TypeScript、工程化，从能用到用好</p><span class="bg-num">03</span></div>
   <div class="days-grid" id="grid-phase3"></div>
 </div>
-<!-- PHASE 4 TAB -->
 <div class="tab-section" id="tab-phase4">
-  <div class="phase-hd ph4"><h2>阶段四 · 全栈实战</h2><p>深化 Next.js App Router、数据库、认证、部署上线</p><span class="bg-num">04</span></div>
+  <div class="phase-hd ph4"><h2>阶段四 · Next.js 从零到全栈</h2><p>从 Next.js 基础概念开始，逐步掌握全栈开发、数据库、认证与部署</p><span class="bg-num">04</span></div>
   <div class="days-grid" id="grid-phase4"></div>
 </div>
-<!-- PROJECTS TAB -->
 <div class="tab-section" id="tab-projects">
-  <div class="sec-title">&#x1F6E0; 7 个完整实战项目详解</div>
+  <div class="sec-title">&#x1F6E0; 7 个完整实战项目</div>
   <div class="proj-grid" id="proj-grid"></div>
 </div>
-<!-- SKILLS TAB -->
 <div class="tab-section" id="tab-skills">
   <div class="sec-title">&#x2705; 合格工程师技能清单</div>
   <p style="color:var(--muted);font-size:.88rem;margin-bottom:16px;">点击打勾，追踪你掌握的技能</p>
   <div id="skill-grid"></div>
 </div>
 
-</div><!-- /container -->
-
+</div>
 <script>
-// ============ DATA ============
+const TOTAL = 65;
 const phases = {
   phase1: [
-    { day:1, title:"React 是什么 + 环境搭建", tag:"t-theory", tagLabel:"理论", topics:["Vite 创建 React 项目","JSX 语法 vs HTML","React 的核心理念：声明式 UI","目录结构解析","Hello World 组件"] },
-    { day:2, title:"组件基础 + Props", tag:"t-theory", tagLabel:"理论", topics:["函数组件写法","Props 传递与接收","Props 类型校验（PropTypes）","组件复用思维","父子组件通信"] },
-    { day:3, title:"useState —— 状态管理入门", tag:"t-practice", tagLabel:"实践", topics:["useState 基本用法","状态更新是异步的","对象/数组状态更新规范","受控表单（input/select）","计数器 + 简单 Todo 练习"] },
-    { day:4, title:"条件渲染 + 列表渲染", tag:"t-practice", tagLabel:"实践", topics:["三元表达式 / && 渲染","key 的重要性与原理","map/filter 渲染列表","动态 className","实战：商品列表页"] },
-    { day:5, title:"useEffect —— 副作用处理", tag:"t-theory", tagLabel:"理论", topics:["副作用是什么","useEffect 依赖数组详解","清理函数（cleanup）","常见使用场景","模拟数据加载"] },
-    { day:6, title:"事件处理 + 表单", tag:"t-practice", tagLabel:"实践", topics:["合成事件系统","阻止默认行为 / 冒泡","受控 vs 非受控组件","表单验证思路","多字段表单组件"] },
-    { day:7, title:"组件拆分 + 项目实战 Day1", tag:"t-project", tagLabel:"项目", topics:["组件粒度如何划分","容器组件 vs 展示组件","实战：任务管理 App（搭框架）","CRUD 逻辑实现","组件间数据流设计"] },
-    { day:8, title:"useRef + DOM操作", tag:"t-theory", tagLabel:"理论", topics:["useRef 的两种用途","访问 DOM 元素","保存不触发渲染的值","forwardRef 简介","焦点管理、滚动控制练习"] },
-    { day:9, title:"useContext —— 跨组件通信", tag:"t-theory", tagLabel:"理论", topics:["Context 解决的问题","createContext / useContext","Provider 的使用","Context vs Props 的选择","主题切换实战"] },
-    { day:10, title:"useReducer —— 复杂状态", tag:"t-practice", tagLabel:"实践", topics:["reducer 函数设计","dispatch 与 action","useReducer vs useState","与 Context 组合使用","购物车状态建模练习"] },
-    { day:11, title:"自定义 Hook", tag:"t-practice", tagLabel:"实践", topics:["提取逻辑到自定义 Hook","命名规范 useFoo","useFetch 数据请求 Hook","useLocalStorage Hook","useDebounce Hook"] },
-    { day:12, title:"useCallback + useMemo", tag:"t-theory", tagLabel:"理论", topics:["引用相等与重渲染","useCallback 缓存函数","useMemo 缓存计算结果","何时该用、何时不该用","性能 profiler 初步"] },
-    { day:13, title:"组件生命周期 + 高阶模式", tag:"t-theory", tagLabel:"理论", topics:["类组件生命周期 vs Hooks","Render Props 模式","高阶组件（HOC）概念","组合 vs 继承","错误边界（Error Boundary）"] },
-    { day:14, title:"项目实战 Day2 —— 完善任务 App", tag:"t-project", tagLabel:"项目", topics:["加入本地存储持久化","筛选 / 搜索功能","拖拽排序（可选）","响应式样式优化","完整功能测试"] },
-    { day:15, title:"阶段一复习 + 知识梳理", tag:"t-review", tagLabel:"复习", topics:["Hooks 全貌思维导图","组件设计原则总结","常见面试题梳理","代码 Review 自查清单","阶段一技能自测"] }
+    {day:1,title:"React 是什么 + 环境搭建",tag:"t-theory",tagLabel:"理论",topics:["Vite 创建 React + TS 项目","JSX 语法 vs HTML 的区别","React 核心理念：声明式 UI","项目目录结构解析","第一个 Hello World 组件"]},
+    {day:2,title:"组件基础 + Props",tag:"t-theory",tagLabel:"理论",topics:["函数组件写法","Props 传递与接收","TypeScript interface 定义 Props","可选 Props 与默认值","父子组件通信"]},
+    {day:3,title:"useState —— 状态管理",tag:"t-practice",tagLabel:"实践",topics:["useState 基本用法","状态更新是异步的","对象和数组状态更新规范","受控表单（input/select）","计数器 + 简单 Todo 练习"]},
+    {day:4,title:"条件渲染 + 列表渲染",tag:"t-practice",tagLabel:"实践",topics:["三元表达式 / && 渲染","key 的重要性与原理","map/filter 渲染列表","动态 className 处理","实战：商品列表页"]},
+    {day:5,title:"useEffect —— 副作用处理",tag:"t-theory",tagLabel:"理论",topics:["副作用是什么","useEffect 依赖数组详解","清理函数（cleanup）","常见使用场景","模拟 API 数据加载"]},
+    {day:6,title:"事件处理 + 表单",tag:"t-practice",tagLabel:"实践",topics:["合成事件系统","阻止默认行为与冒泡","受控 vs 非受控组件","多字段表单组件","表单验证基础思路"]},
+    {day:7,title:"组件拆分 + 任务 App Day1",tag:"t-project",tagLabel:"项目",topics:["组件粒度如何划分","容器组件 vs 展示组件","任务管理 App 搭框架","CRUD 逻辑实现","组件间数据流设计"]},
+    {day:8,title:"useRef + DOM 操作",tag:"t-theory",tagLabel:"理论",topics:["useRef 的两种用途","访问 DOM 元素","保存不触发渲染的值","forwardRef 简介","焦点管理、滚动控制练习"]},
+    {day:9,title:"useContext —— 跨组件通信",tag:"t-theory",tagLabel:"理论",topics:["Context 解决的问题","createContext / useContext","Provider 的使用","Context vs Props 如何选择","主题切换（暗黑模式）实战"]},
+    {day:10,title:"useReducer —— 复杂状态",tag:"t-practice",tagLabel:"实践",topics:["reducer 函数设计","dispatch 与 action","useReducer vs useState","与 Context 组合使用","购物车状态建模练习"]},
+    {day:11,title:"自定义 Hook",tag:"t-practice",tagLabel:"实践",topics:["提取逻辑到自定义 Hook","命名规范 useFoo","useFetch 数据请求 Hook","useLocalStorage Hook","useDebounce Hook"]},
+    {day:12,title:"useCallback + useMemo",tag:"t-theory",tagLabel:"理论",topics:["引用相等与重渲染","useCallback 缓存函数","useMemo 缓存计算结果","何时该用、何时不该用","React DevTools Profiler 初步"]},
+    {day:13,title:"高阶模式 + 错误边界",tag:"t-theory",tagLabel:"理论",topics:["Render Props 模式","高阶组件（HOC）概念","组合 vs 继承","错误边界（Error Boundary）","Suspense + 懒加载初步"]},
+    {day:14,title:"任务 App Day2 —— 完善",tag:"t-project",tagLabel:"项目",topics:["本地存储持久化","筛选 / 搜索功能","响应式样式优化","TypeScript 全量类型化","完整功能自测"]},
+    {day:15,title:"阶段一复习 + 自测",tag:"t-review",tagLabel:"复习",topics:["Hooks 全貌思维导图","组件设计原则总结","常见面试题梳理","代码 Review 自查清单","阶段一技能打分"]}
   ],
   phase2: [
-    { day:16, title:"React Router v6 基础", tag:"t-theory", tagLabel:"理论", topics:["SPA 路由原理","BrowserRouter / Routes / Route","Link 与 NavLink","useParams / useNavigate","嵌套路由结构"] },
-    { day:17, title:"React Router 进阶", tag:"t-practice", tagLabel:"实践", topics:["布局路由（Outlet）","动态路由参数","路由守卫（PrivateRoute）","懒加载路由","404 页面处理"] },
-    { day:18, title:"Zustand 状态管理", tag:"t-theory", tagLabel:"理论", topics:["为什么需要全局状态库","Zustand 核心 API","store 的创建与使用","immer 中间件","持久化中间件"] },
-    { day:19, title:"React Query (TanStack Query)", tag:"t-theory", tagLabel:"理论", topics:["服务端状态 vs 客户端状态","useQuery 基础用法","缓存与失效策略","useMutation","乐观更新"] },
-    { day:20, title:"React Query 实战", tag:"t-practice", tagLabel:"实践", topics:["与真实 API 对接","加载态 / 错误态处理","分页查询","无限滚动","QueryClient 全局配置"] },
-    { day:21, title:"项目实战 —— 天气查询 App Day1", tag:"t-project", tagLabel:"项目", topics:["OpenWeatherMap API 接入","搜索城市功能","React Query 管理请求","路由：首页 + 城市详情","错误处理与骨架屏"] },
-    { day:22, title:"Tailwind CSS 快速上手", tag:"t-practice", tagLabel:"实践", topics:["功能类 CSS 理念","常用工具类速查","响应式断点","暗黑模式配置","与 shadcn/ui 结合"] },
-    { day:23, title:"UI 组件库使用", tag:"t-practice", tagLabel:"实践", topics:["shadcn/ui 组件体系","Radix UI 无障碍基础","常用组件：Modal/Toast/Dropdown","表单与校验（react-hook-form）","Zod schema 验证"] },
-    { day:24, title:"动画与交互", tag:"t-practice", tagLabel:"实践", topics:["Framer Motion 基础","入场 / 出场动画","手势交互","列表动画","页面切换过渡"] },
-    { day:25, title:"天气 App Day2 —— 完善功能", tag:"t-project", tagLabel:"项目", topics:["收藏城市（Zustand）","天气图标与视觉优化","Tailwind 响应式布局","动画过渡效果","项目总结"] },
-    { day:26, title:"电商项目 Day1 —— 商品列表", tag:"t-project", tagLabel:"项目", topics:["商品列表 + 搜索过滤","分类筛选 + 排序","商品详情页路由","骨架屏加载态","React Query 数据管理"] },
-    { day:27, title:"电商项目 Day2 —— 购物车", tag:"t-project", tagLabel:"项目", topics:["购物车全局状态 (Zustand)","增减数量 / 删除商品","价格计算逻辑","本地持久化","结算页面流程"] },
-    { day:28, title:"HTTP 与 API 最佳实践", tag:"t-theory", tagLabel:"理论", topics:["Axios vs Fetch 对比","拦截器配置（认证 token）","统一错误处理","API 请求封装","Mock 数据方案（msw）"] },
-    { day:29, title:"电商项目 Day3 —— 收尾优化", tag:"t-project", tagLabel:"项目", topics:["Framer Motion 动画","错误边界保护","代码分割与懒加载","性能初步优化","完整功能 Demo"] },
-    { day:30, title:"阶段二复习 + 技术栈梳理", tag:"t-review", tagLabel:"复习", topics:["路由 + 状态 + 请求总结","技术选型决策框架","常见面试题","阶段二项目代码审查","进入阶段三预习"] }
+    {day:16,title:"React Router v6 基础",tag:"t-theory",tagLabel:"理论",topics:["SPA 路由原理","BrowserRouter / Routes / Route","Link 与 NavLink","useParams / useNavigate","嵌套路由结构"]},
+    {day:17,title:"React Router 进阶",tag:"t-practice",tagLabel:"实践",topics:["布局路由（Outlet）","动态路由参数","路由守卫（PrivateRoute）","懒加载路由（React.lazy）","404 页面处理"]},
+    {day:18,title:"Zustand 全局状态",tag:"t-theory",tagLabel:"理论",topics:["为什么需要全局状态库","Zustand 核心 API","store 的创建与使用","immer 中间件","持久化中间件"]},
+    {day:19,title:"React Query 基础",tag:"t-theory",tagLabel:"理论",topics:["服务端状态 vs 客户端状态","useQuery 基础用法","缓存与失效策略","useMutation","乐观更新"]},
+    {day:20,title:"React Query 实战",tag:"t-practice",tagLabel:"实践",topics:["与真实 API 对接","加载态 / 错误态处理","分页查询","无限滚动","QueryClient 全局配置"]},
+    {day:21,title:"天气 App Day1",tag:"t-project",tagLabel:"项目",topics:["OpenWeatherMap API 接入","搜索城市功能","React Query 管理请求","路由：首页 + 城市详情","骨架屏 + 错误处理"]},
+    {day:22,title:"Tailwind CSS 快速上手",tag:"t-practice",tagLabel:"实践",topics:["功能类 CSS 理念","常用工具类速查","响应式断点系统","暗黑模式配置","与 shadcn/ui 结合"]},
+    {day:23,title:"UI 组件库 + 表单校验",tag:"t-practice",tagLabel:"实践",topics:["shadcn/ui 组件体系","常用组件：Modal/Toast/Dropdown","react-hook-form 基础","Zod schema 验证","表单与校验组合实战"]},
+    {day:24,title:"动画与交互",tag:"t-practice",tagLabel:"实践",topics:["Framer Motion 基础","入场 / 出场动画","手势交互","列表动画","页面切换过渡"]},
+    {day:25,title:"天气 App Day2 —— 完善",tag:"t-project",tagLabel:"项目",topics:["收藏城市（Zustand）","天气图标视觉优化","Tailwind 响应式布局","动画过渡效果","项目 Demo 整理"]},
+    {day:26,title:"电商项目 Day1 —— 商品列表",tag:"t-project",tagLabel:"项目",topics:["商品列表 + 搜索过滤","分类筛选 + 排序","商品详情页路由","骨架屏加载态","React Query 数据管理"]},
+    {day:27,title:"电商项目 Day2 —— 购物车",tag:"t-project",tagLabel:"项目",topics:["购物车全局状态（Zustand）","增减数量 / 删除","价格计算逻辑","本地持久化","结算页面流程"]},
+    {day:28,title:"HTTP 与 API 最佳实践",tag:"t-theory",tagLabel:"理论",topics:["Axios vs Fetch 对比","拦截器配置（Token 注入）","统一错误处理","API 请求层封装","Mock 数据（msw）"]},
+    {day:29,title:"电商项目 Day3 —— 收尾",tag:"t-project",tagLabel:"项目",topics:["Framer Motion 动画","错误边界保护","代码分割与懒加载","性能初步优化","完整 Demo"]},
+    {day:30,title:"阶段二复习 + 技术栈梳理",tag:"t-review",tagLabel:"复习",topics:["路由 + 状态 + 请求总结","技术选型决策框架","常见面试题","阶段二项目代码 Review","进入阶段三预习"]}
   ],
   phase3: [
-    { day:31, title:"TypeScript 快速入门", tag:"t-theory", tagLabel:"理论", topics:["为什么 React 项目要用 TS","基础类型 / 接口 / 泛型","类型推断原则","tsconfig.json 配置","TS + Vite 项目初始化"] },
-    { day:32, title:"TypeScript + React", tag:"t-practice", tagLabel:"实践", topics:["组件 Props 类型定义","事件类型（ChangeEvent 等）","泛型 Hook","useState 泛型","第三方库类型使用"] },
-    { day:33, title:"React 渲染原理深入", tag:"t-theory", tagLabel:"理论", topics:["Fiber 架构概述","协调（Reconciliation）算法","批量更新机制","Concurrent Mode 简介","startTransition / Suspense"] },
-    { day:34, title:"性能优化实战", tag:"t-practice", tagLabel:"实践", topics:["React DevTools Profiler 使用","memo 包裹组件","useCallback/useMemo 正确姿势","避免不必要重渲染","Context 性能问题与解法"] },
-    { day:35, title:"大列表优化", tag:"t-practice", tagLabel:"实践", topics:["虚拟列表原理","react-window 使用","无限滚动实现","图片懒加载","Intersection Observer API"] },
-    { day:36, title:"代码分割与懒加载", tag:"t-theory", tagLabel:"理论", topics:["dynamic import 原理","React.lazy + Suspense","路由级代码分割","组件级懒加载","Bundle 分析（vite-bundle-visualizer）"] },
-    { day:37, title:"单元测试基础", tag:"t-theory", tagLabel:"理论", topics:["测试金字塔","Vitest 配置","@testing-library/react","render + screen + userEvent","测试原则：测行为不测实现"] },
-    { day:38, title:"测试实战", tag:"t-practice", tagLabel:"实践", topics:["组件渲染测试","用户交互测试","异步操作测试","Mock API 请求","Coverage 报告分析"] },
-    { day:39, title:"数据仪表盘项目 Day1", tag:"t-project", tagLabel:"项目", topics:["Recharts 图表组件","折线图 + 柱状图 + 饼图","动态数据更新","全 TypeScript 开发","布局与响应式"] },
-    { day:40, title:"数据仪表盘项目 Day2", tag:"t-project", tagLabel:"项目", topics:["大列表虚拟化","懒加载图表","memo 性能优化","单元测试覆盖核心组件","完整 Demo"] },
-    { day:41, title:"工程化：ESLint + Prettier", tag:"t-practice", tagLabel:"实践", topics:["ESLint 规则配置","react-hooks/exhaustive-deps 规则","Prettier 格式化","husky + lint-staged","统一代码风格"] },
-    { day:42, title:"Git 工作流 + CI/CD 基础", tag:"t-practice", tagLabel:"实践", topics:["Git Flow vs Trunk-based","Commit 规范 (Conventional Commits)","GitHub Actions 入门","自动化 Lint + Test","构建产物检查"] },
-    { day:43, title:"可访问性（A11y）基础", tag:"t-theory", tagLabel:"理论", topics:["ARIA 属性与语义化","键盘导航支持","axe-core 工具检测","屏幕阅读器测试思路","常见无障碍问题修复"] },
-    { day:44, title:"状态机与复杂状态管理", tag:"t-theory", tagLabel:"理论", topics:["XState 核心概念","有限状态机建模","复杂表单工作流","useStateMachine 轻量方案","何时需要状态机"] },
-    { day:45, title:"阶段三复习 + 进阶自测", tag:"t-review", tagLabel:"复习", topics:["TypeScript 类型体操练习","性能优化决策树","测试策略总结","工程化配置 Checklist","准备进入全栈阶段"] }
+    {day:31,title:"TypeScript 快速入门",tag:"t-theory",tagLabel:"理论",topics:["为什么 React 项目要用 TS","基础类型 / 接口 / 泛型","类型推断原则","tsconfig.json 配置","TS + Vite 项目初始化"]},
+    {day:32,title:"TypeScript + React",tag:"t-practice",tagLabel:"实践",topics:["Props 类型定义","事件类型（ChangeEvent 等）","泛型 Hook","useState 泛型","第三方库类型使用"]},
+    {day:33,title:"React 渲染原理深入",tag:"t-theory",tagLabel:"理论",topics:["Fiber 架构概述","协调（Reconciliation）算法","批量更新机制","Concurrent Mode 简介","startTransition / Suspense"]},
+    {day:34,title:"性能优化实战",tag:"t-practice",tagLabel:"实践",topics:["React DevTools Profiler 使用","React.memo 包裹组件","useCallback/useMemo 正确姿势","避免不必要重渲染","Context 性能问题与解法"]},
+    {day:35,title:"大列表与懒加载优化",tag:"t-practice",tagLabel:"实践",topics:["虚拟列表原理","react-window 使用","无限滚动实现","图片懒加载","Intersection Observer API"]},
+    {day:36,title:"代码分割与 Bundle 优化",tag:"t-theory",tagLabel:"理论",topics:["dynamic import 原理","React.lazy + Suspense","路由级代码分割","Bundle 分析（vite-bundle-visualizer）","Tree Shaking 原理"]},
+    {day:37,title:"单元测试基础",tag:"t-theory",tagLabel:"理论",topics:["测试金字塔","Vitest 配置","@testing-library/react","render + screen + userEvent","测试行为不测实现"]},
+    {day:38,title:"测试实战",tag:"t-practice",tagLabel:"实践",topics:["组件渲染测试","用户交互测试","异步操作测试","Mock API 请求（msw）","Coverage 报告分析"]},
+    {day:39,title:"数据仪表盘 Day1",tag:"t-project",tagLabel:"项目",topics:["Recharts 图表组件","折线图 + 柱状图 + 饼图","动态数据更新","全 TypeScript 开发","布局与响应式"]},
+    {day:40,title:"数据仪表盘 Day2",tag:"t-project",tagLabel:"项目",topics:["大列表虚拟化优化","懒加载图表","React.memo 性能优化","核心组件单元测试","完整 Demo"]},
+    {day:41,title:"工程化：ESLint + Prettier",tag:"t-practice",tagLabel:"实践",topics:["ESLint 规则配置","react-hooks/exhaustive-deps 规则","Prettier 格式化","husky + lint-staged","统一代码风格"]},
+    {day:42,title:"Git 工作流 + CI/CD 基础",tag:"t-practice",tagLabel:"实践",topics:["Git Flow vs Trunk-based","Commit 规范（Conventional Commits）","GitHub Actions 入门","自动化 Lint + Test","构建产物检查"]},
+    {day:43,title:"可访问性（A11y）基础",tag:"t-theory",tagLabel:"理论",topics:["ARIA 属性与语义化","键盘导航支持","axe-core 检测工具","屏幕阅读器测试思路","常见无障碍问题修复"]},
+    {day:44,title:"状态机与复杂状态",tag:"t-theory",tagLabel:"理论",topics:["有限状态机建模思路","XState 核心概念","复杂表单工作流建模","何时需要状态机","useReducer 进阶模式"]},
+    {day:45,title:"阶段三复习 + 进阶自测",tag:"t-review",tagLabel:"复习",topics:["TypeScript 类型练习","性能优化决策树","测试策略总结","工程化 Checklist","准备进入 Next.js 阶段"]}
   ],
   phase4: [
-    { day:46, title:"Next.js App Router 深化", tag:"t-theory", tagLabel:"理论", topics:["App Router vs Pages Router","Server Components 原理","Client Components 边界","数据获取新范式","Streaming 渲染"] },
-    { day:47, title:"Server Actions + 数据变更", tag:"t-practice", tagLabel:"实践", topics:["Server Actions 概念","表单与 Server Action","useFormState / useFormStatus","Optimistic UI","与数据库直连"] },
-    { day:48, title:"Prisma ORM 入门", tag:"t-theory", tagLabel:"理论", topics:["Prisma Schema 定义","数据库迁移（migrate）","CRUD 操作","关联关系建模","PostgreSQL / SQLite 配置"] },
-    { day:49, title:"全栈认证系统 Day1", tag:"t-project", tagLabel:"项目", topics:["NextAuth.js v5 配置","邮箱密码认证","Session 与 JWT 策略","中间件路由保护","登录 / 注册页面"] },
-    { day:50, title:"全栈认证系统 Day2", tag:"t-project", tagLabel:"项目", topics:["OAuth 第三方登录（GitHub）","用户权限角色","Server Action + Prisma","个人资料页","完整认证流程 Demo"] },
-    { day:51, title:"Next.js SEO + 元数据", tag:"t-theory", tagLabel:"理论", topics:["Metadata API","动态 OG 图（og:image）","结构化数据 (JSON-LD)","Sitemap 与 robots.txt","Core Web Vitals 优化"] },
-    { day:52, title:"全栈博客平台 Day1", tag:"t-project", tagLabel:"项目", topics:["MDX 内容管理","文章列表 SSG","文章详情 ISR","Syntax Highlight","目录导航组件"] },
-    { day:53, title:"全栈博客平台 Day2", tag:"t-project", tagLabel:"项目", topics:["评论系统（Prisma）","搜索功能","RSS Feed","SEO 元数据","Vercel 部署"] },
-    { day:54, title:"文件上传 + 对象存储", tag:"t-practice", tagLabel:"实践", topics:["Next.js 文件上传处理","Cloudinary / UploadThing","图片压缩与优化","next/image 组件深入","CDN 配置"] },
-    { day:55, title:"实时功能 + WebSocket", tag:"t-practice", tagLabel:"实践", topics:["WebSocket 在 Next.js 中的方案","Pusher 实时推送","Server-Sent Events","实时通知系统","乐观更新模式"] },
-    { day:56, title:"毕业项目 Day1 —— 需求与设计", tag:"t-project", tagLabel:"项目", topics:["需求梳理与功能列表","数据库 Schema 设计","技术选型决策","项目骨架搭建","UI 设计草图"] },
-    { day:57, title:"毕业项目 Day2 —— 核心功能", tag:"t-project", tagLabel:"项目", topics:["认证系统接入","核心 CRUD 功能","Server Components 架构","表单与验证","API 路由设计"] },
-    { day:58, title:"毕业项目 Day3 —— 完善功能", tag:"t-project", tagLabel:"项目", topics:["高级搜索过滤","分页与无限滚动","权限控制","错误边界与加载态","UI 精细优化"] },
-    { day:59, title:"毕业项目 Day4 —— 测试与优化", tag:"t-project", tagLabel:"项目", topics:["关键路径单元测试","Lighthouse 性能优化","SEO 检查","Prisma 查询优化","安全审查（XSS/CSRF）"] },
-    { day:60, title:"毕业项目 Day5 —— 部署与收尾", tag:"t-project", tagLabel:"项目", topics:["Vercel 部署配置","环境变量管理","域名绑定","监控与日志（Sentry）","项目 README + 技术总结"] }
+    {day:46,title:"Next.js 是什么 + 项目创建",tag:"t-theory",tagLabel:"理论",topics:["Next.js vs 纯 React SPA 的区别","SSR / SSG / CSR 概念对比","create-next-app 创建项目","项目目录结构详解","Pages Router 与 App Router 简介"]},
+    {day:47,title:"Pages Router 基础路由",tag:"t-theory",tagLabel:"理论",topics:["pages/ 目录即路由","动态路由 [id].tsx","Link 组件与 useRouter","_app.tsx / _document.tsx","API Routes 基础"]},
+    {day:48,title:"数据获取：getStaticProps / getServerSideProps",tag:"t-practice",tagLabel:"实践",topics:["getStaticProps（SSG）","getServerSideProps（SSR）","getStaticPaths 动态路由预生成","ISR 增量静态再生","什么场景用哪种"]},
+    {day:49,title:"App Router 核心概念",tag:"t-theory",tagLabel:"理论",topics:["app/ 目录结构","Server Components vs Client Components","layout.tsx / page.tsx / loading.tsx","'use client' 指令","数据获取新范式（async 组件）"]},
+    {day:50,title:"App Router 路由与导航",tag:"t-practice",tagLabel:"实践",topics:["嵌套路由与嵌套布局","动态路由段","Route Groups（路由分组）","Parallel Routes（并行路由）","useRouter / usePathname / useSearchParams"]},
+    {day:51,title:"Server Actions + 数据变更",tag:"t-practice",tagLabel:"实践",topics:["Server Actions 概念与写法","表单与 Server Action 结合","useFormStatus / useFormState","Optimistic UI 乐观更新","与数据库直连操作"]},
+    {day:52,title:"Prisma ORM 入门",tag:"t-theory",tagLabel:"理论",topics:["ORM 是什么，为什么用","Prisma Schema 定义","数据库迁移（migrate）","基础 CRUD 操作","关联关系建模（1对多）"]},
+    {day:53,title:"全栈认证系统 Day1",tag:"t-project",tagLabel:"项目",topics:["NextAuth.js v5 安装配置","邮箱密码注册与登录","Session 策略配置","中间件路由保护","登录 / 注册页面实现"]},
+    {day:54,title:"全栈认证系统 Day2",tag:"t-project",tagLabel:"项目",topics:["OAuth 第三方登录（GitHub）","用户权限角色设计","Server Action + Prisma 写入","个人资料页","完整认证流程 Demo"]},
+    {day:55,title:"Next.js SEO + 元数据",tag:"t-theory",tagLabel:"理论",topics:["Metadata API 使用","动态 OG 图（og:image）","结构化数据（JSON-LD）","Sitemap 与 robots.txt","Core Web Vitals 优化思路"]},
+    {day:56,title:"全栈博客平台 Day1",tag:"t-project",tagLabel:"项目",topics:["MDX 内容管理配置","文章列表页（SSG）","文章详情页（ISR）","Syntax Highlight 代码高亮","目录导航组件"]},
+    {day:57,title:"全栈博客平台 Day2",tag:"t-project",tagLabel:"项目",topics:["评论系统（Prisma + Server Action）","搜索功能","RSS Feed 生成","SEO 元数据配置","Vercel 部署"]},
+    {day:58,title:"文件上传 + 图片优化",tag:"t-practice",tagLabel:"实践",topics:["next/image 组件深入","UploadThing 文件上传","图片压缩与格式转换","CDN 配置思路","用户头像上传实战"]},
+    {day:59,title:"毕业项目 Day1 —— 规划设计",tag:"t-project",tagLabel:"项目",topics:["需求梳理与功能列表","数据库 Schema 设计","技术选型决策","项目骨架搭建","UI 草图与页面规划"]},
+    {day:60,title:"毕业项目 Day2 —— 核心开发",tag:"t-project",tagLabel:"项目",topics:["认证系统接入","核心 CRUD 功能实现","Server Components 架构","表单与 Zod 验证","API 路由设计"]},
+    {day:61,title:"毕业项目 Day3 —— 功能完善",tag:"t-project",tagLabel:"项目",topics:["高级搜索与过滤","分页与无限滚动","权限控制逻辑","错误边界与加载态","UI 精细化优化"]},
+    {day:62,title:"毕业项目 Day4 —— 测试优化",tag:"t-project",tagLabel:"项目",topics:["关键路径单元测试","Lighthouse 性能优化","SEO 检查与修复","Prisma 查询优化","安全审查（XSS/CSRF）"]},
+    {day:63,title:"毕业项目 Day5 —— 部署上线",tag:"t-project",tagLabel:"项目",topics:["Vercel 部署配置","环境变量管理","域名绑定","监控与日志（Sentry）","项目 README 与技术总结"]},
+    {day:64,title:"全面复习 + 查漏补缺",tag:"t-review",tagLabel:"复习",topics:["React + Next.js 全流程梳理","面试高频考点整理","项目亮点提炼","技术博客写作思路","开源贡献入门"]},
+    {day:65,title:"职业规划 + 下一步路线",tag:"t-review",tagLabel:"复习",topics:["初级 / 中级 / 高级工程师差距","简历与项目展示优化","推荐持续学习资源","React 社区参与","制定 60 天后的成长计划"]}
   ]
 };
 
 const projects = [
-  { level:"lv1", title:"&#x1F4DD; 任务管理应用", desc:"完整 CRUD，本地存储持久化，搜索过滤，组件合理拆分，自定义 Hook 封装", tags:["useState","useEffect","localStorage","自定义Hook"] },
-  { level:"lv2", title:"&#x1F324; 天气查询+收藏", desc:"调用真实天气 API，多页路由，收藏城市全局状态，骨架屏加载态", tags:["React Router","React Query","Zustand","Tailwind"] },
-  { level:"lv2", title:"&#x1F6D2; 电商商品+购物车", desc:"商品列表搜索排序，购物车全局状态，结算流程，Framer Motion 动画过渡", tags:["Zustand","useReducer","Framer Motion","React Query"] },
-  { level:"lv3", title:"&#x1F4CA; 数据可视化仪表盘", desc:"多种图表，大数据列表虚拟化，TypeScript 全程，Vitest 单元测试覆盖", tags:["TypeScript","Recharts","react-window","Vitest"] },
-  { level:"lv4", title:"&#x1F512; 全栈认证系统", desc:"邮箱密码 + OAuth 登录，JWT/Session，中间件路由保护，用户权限角色管理", tags:["Next.js","Prisma","NextAuth.js","PostgreSQL"] },
-  { level:"lv4", title:"&#x1F4F0; 全栈博客平台", desc:"MDX 内容管理，SSG 文章列表，ISR 增量更新，评论系统，完整 SEO 优化", tags:["App Router","Server Components","MDX","SEO"] },
-  { level:"lv4", title:"&#x1F3EA; 综合毕业项目", desc:"完整全栈应用，需求分析→开发→测试→Vercel 部署，覆盖全部核心技能", tags:["Next.js全栈","Prisma","Vercel","Sentry"] }
+  {level:"lv1",title:"📝 任务管理应用",desc:"完整 CRUD，localStorage 持久化，搜索过滤，自定义 Hook 封装，TypeScript 全程",tags:["useState","useEffect","localStorage","自定义Hook"]},
+  {level:"lv2",title:"🌤 天气查询+收藏",desc:"调用真实天气 API，多页路由，收藏城市全局状态，骨架屏，Tailwind 响应式",tags:["React Router","React Query","Zustand","Tailwind"]},
+  {level:"lv2",title:"🛒 电商商品+购物车",desc:"商品搜索排序，购物车全局状态，结算流程，Framer Motion 动画",tags:["Zustand","useReducer","Framer Motion","React Query"]},
+  {level:"lv3",title:"📊 数据可视化仪表盘",desc:"多种图表，虚拟列表优化，TypeScript 全程，Vitest 单元测试覆盖",tags:["TypeScript","Recharts","react-window","Vitest"]},
+  {level:"lv4",title:"🔐 全栈认证系统",desc:"邮箱密码 + OAuth 登录，JWT/Session，中间件路由保护，用户权限角色",tags:["Next.js","Prisma","NextAuth.js","PostgreSQL"]},
+  {level:"lv4",title:"📰 全栈博客平台",desc:"MDX 内容管理，SSG/ISR，评论系统，完整 SEO 优化，Vercel 部署",tags:["App Router","Server Components","MDX","SEO"]},
+  {level:"lv4",title:"🏪 综合毕业项目",desc:"完整全栈应用，需求→开发→测试→部署，覆盖全部核心技能",tags:["Next.js全栈","Prisma","Vercel","Sentry"]}
 ];
 
 const skillCategories = [
-  { cat:"⚛️ React 核心", skills:["理解 JSX 与虚拟 DOM 原理","正确使用 useState 管理复杂状态","掌握 useEffect 副作用处理","熟练 useContext 跨层组件通信","用 useReducer 建模复杂状态","封装可复用自定义 Hook","理解 useCallback/useMemo 使用场景","正确使用 useRef 操作 DOM","设计清晰的组件层级结构","实现错误边界（Error Boundary）"] },
-  { cat:"🔧 生态工具", skills:["React Router v6 嵌套路由设计","实现路由级代码懒加载","使用 Zustand 管理全局状态","掌握 React Query 服务端状态","封装统一 API 请求层","使用 react-hook-form + Zod 表单校验","Tailwind CSS 响应式布局","Framer Motion 动画实现"] },
-  { cat:"🚀 进阶能力", skills:["用 TypeScript 完整类型化 React 项目","React DevTools Profiler 定位性能问题","虚拟列表优化长列表渲染","代码分割减少首屏体积","编写组件行为测试（RTL + Vitest）","配置 ESLint + Prettier + husky","理解 Fiber 协调算法","掌握 Concurrent Mode 特性"] },
-  { cat:"🌐 全栈 Next.js", skills:["理解 Server vs Client Components","Server Actions 处理数据变更","Prisma 设计和操作数据库","NextAuth.js 实现完整认证流程","Next.js Metadata API 做 SEO","SSG/SSR/ISR 渲染策略选型","部署应用到 Vercel","配置环境变量和 CI/CD"] }
+  {cat:"⚛️ React 核心",skills:["理解 JSX 与虚拟 DOM 原理","正确使用 useState 管理复杂状态","掌握 useEffect 副作用处理","熟练 useContext 跨层组件通信","用 useReducer 建模复杂状态","封装可复用自定义 Hook","理解 useCallback/useMemo 使用场景","正确使用 useRef 操作 DOM","设计清晰的组件层级结构","实现错误边界（Error Boundary）"]},
+  {cat:"🔧 生态工具",skills:["React Router v6 嵌套路由设计","实现路由级代码懒加载","使用 Zustand 管理全局状态","掌握 React Query 服务端状态","封装统一 API 请求层","react-hook-form + Zod 表单校验","Tailwind CSS 响应式布局","Framer Motion 动画实现"]},
+  {cat:"🚀 进阶能力",skills:["TypeScript 完整类型化 React 项目","React DevTools Profiler 定位性能问题","虚拟列表优化长列表渲染","代码分割减少首屏体积","编写组件行为测试（RTL + Vitest）","配置 ESLint + Prettier + husky","理解 Fiber 协调算法","掌握 Concurrent Mode 特性"]},
+  {cat:"🌐 Next.js 全栈",skills:["理解 SSR/SSG/ISR/CSR 区别与选型","掌握 App Router 路由与布局","区分 Server / Client Components","Server Actions 处理数据变更","Prisma 设计与操作数据库","NextAuth.js 实现完整认证","Next.js Metadata API 做 SEO","部署到 Vercel 并配置环境变量"]}
 ];
 
-// ============ STORAGE ============
-function loadDone(){return JSON.parse(localStorage.getItem('react_done')||'{}')}
-function saveDone(d){localStorage.setItem('react_done',JSON.stringify(d))}
-function loadSkills(){return JSON.parse(localStorage.getItem('react_skills')||'{}')}
-function saveSkills(s){localStorage.setItem('react_skills',JSON.stringify(s))}
+// Storage
+function loadDone(){return JSON.parse(localStorage.getItem('rr_done')||'{}')}
+function saveDone(d){localStorage.setItem('rr_done',JSON.stringify(d))}
+function loadSkills(){return JSON.parse(localStorage.getItem('rr_skills')||'{}')}
+function saveSkills(s){localStorage.setItem('rr_skills',JSON.stringify(s))}
 
 function updateProgress(){
   const done=loadDone();
   const count=Object.values(done).filter(Boolean).length;
   document.getElementById('doneCount').textContent=count;
-  const pct=Math.round(count/60*100);
+  const pct=Math.round(count/TOTAL*100);
   document.getElementById('pctLabel').textContent=pct+'%';
   document.getElementById('progFill').style.width=pct+'%';
 }
 
-// ============ RENDER DAYS ============
 const phaseColors={phase1:'#6366f1',phase2:'#8b5cf6',phase3:'#06b6d4',phase4:'#10b981'};
 const lvLabel={lv1:'阶段一',lv2:'阶段二',lv3:'阶段三',lv4:'阶段四'};
 
@@ -306,26 +301,22 @@ function toggleDay(n){
   done['d'+n]=!done['d'+n];
   saveDone(done);
   const card=document.getElementById('dc-'+n);
-  const btn=card.querySelector('.check-btn');
-  if(done['d'+n]){card.classList.add('done');btn.innerHTML='&#x2714; 已完成，点击取消';}
-  else{card.classList.remove('done');btn.innerHTML='&#x25CB; 标为完成';}
+  card.querySelector('.check-btn').innerHTML=done['d'+n]?'&#x2714; 已完成，点击取消':'&#x25CB; 标为完成';
+  done['d'+n]?card.classList.add('done'):card.classList.remove('done');
   updateProgress();
 }
 
-// ============ RENDER PROJECTS ============
 function renderProjects(){
   const pg=document.getElementById('proj-grid');
   if(!pg)return;
   pg.innerHTML=projects.map(p=>`
     <div class="proj-card">
       <span class="plv ${p.level}">${lvLabel[p.level]}</span>
-      <h4>${p.title}</h4>
-      <p>${p.desc}</p>
+      <h4>${p.title}</h4><p>${p.desc}</p>
       <div class="proj-tags">${p.tags.map(t=>`<span class="ptag">${t}</span>`).join('')}</div>
     </div>`).join('');
 }
 
-// ============ RENDER SKILLS ============
 function renderSkills(){
   const sg=document.getElementById('skill-grid');
   if(!sg)return;
@@ -334,45 +325,26 @@ function renderSkills(){
     <div class="skill-cat">${cat.cat}</div>
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px;margin-bottom:8px;">
       ${cat.skills.map((sk,i)=>{
-        const key=encodeURIComponent(cat.cat)+i;
+        const key=btoa(encodeURIComponent(cat.cat)).slice(0,8)+i;
         return `<div class="skill-item${s[key]?' checked':''}" onclick="toggleSkill('${key}',this)">
-          <div class="skill-check"></div>
-          <span class="skill-text">${sk}</span>
+          <div class="skill-check"></div><span class="skill-text">${sk}</span>
         </div>`;
       }).join('')}
     </div>`).join('');
 }
 
 function toggleSkill(key,el){
-  const s=loadSkills();
-  s[key]=!s[key];
-  saveSkills(s);
+  const s=loadSkills();s[key]=!s[key];saveSkills(s);
   el.classList.toggle('checked',!!s[key]);
 }
 
-// ============ TABS ============
 function showTab(id,btn){
   document.querySelectorAll('.tab-section').forEach(s=>s.classList.remove('active'));
   document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
   document.getElementById('tab-'+id).classList.add('active');
   if(btn)btn.classList.add('active');
-  else{
-    document.querySelectorAll('.nav-btn').forEach(b=>{
-      if(b.getAttribute('onclick')&&b.getAttribute('onclick').includes("'"+id+"'"))b.classList.add('active');
-    });
-  }
 }
 
-// Patch nav buttons to pass self
-document.querySelectorAll('.nav-btn').forEach(b=>{
-  const orig=b.getAttribute('onclick');
-  if(orig){
-    const m=orig.match(/'([^']+)'/);
-    if(m)b.setAttribute('onclick',`showTab('${m[1]}',this)`);
-  }
-});
-
-// ============ INIT ============
 renderDays();
 renderProjects();
 renderSkills();
