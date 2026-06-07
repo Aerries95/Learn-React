@@ -1,0 +1,98 @@
+/* 全局盒子样式 */
+.box {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* 每个模块间距 */
+.section {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+/* 标题样式 */
+h3 {
+  color: #333;
+  margin-top: 0;
+  border-left: 4px solid #409eff;
+  padding-left: 10px;
+}
+
+/* 输入框样式 */
+input[type="text"],
+input[type="password"],
+input.shopping {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin: 6px;
+  outline: none;
+  transition: border 0.3s;
+}
+
+input:focus {
+  border-color: #409eff;
+}
+
+/* 按钮样式 */
+button {
+  padding: 8px 16px;
+  background-color: #409eff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin: 6px;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #337ecc;
+}
+
+/* 退出按钮红色 */
+button:last-of-type {
+  background-color: #f56c6c;
+}
+
+button:last-of-type:hover {
+  background-color: #d14343;
+}
+
+/* 下拉选择框 */
+select {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  margin: 0 10px;
+}
+
+/* 列表样式 */
+ul {
+  list-style: none;
+  padding-left: 10px;
+}
+
+li {
+  padding: 8px;
+  background: #f5f7fa;
+  margin: 6px 0;
+  border-radius: 6px;
+}
+
+/* 文字提示 */
+p {
+  color: #555;
+  margin: 8px 0;
+}
+
+/* 空状态提示 */
+p:empty,
+.section p {
+  color: #999;
+}
